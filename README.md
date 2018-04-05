@@ -2,7 +2,7 @@
 
 This tool allows users to find methylated motifs in CpG context and also motifs that contain modified bases. 
 
-Version 0.05
+Version 0.07
 
 Contact: vqngo@ucsd.edu
 
