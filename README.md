@@ -38,7 +38,7 @@ TypeEF:
 
 If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), graphE-8mer (download it from our website) instead, you should be able to find several highly enriched m-motifs. 
 
-*Note: This pipeline must be executed in the mepigram main directory.
+*Note: This pipeline must be executed in the mepigram main directory. For more information, execute: python mepigram_wrapper.py -h
 
 
 #### mEpigram preprocessing scripts:
