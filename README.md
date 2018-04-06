@@ -22,7 +22,7 @@ Contact: vqngo@ucsd.edu
 
 ## Usage
  
-To run mEpigram: Use mepigram_wrapper.py script. <\b> Also, the package includes several tools to help preprocess your data before using the program.
+To run mEpigram: Use mepigram_wrapper.py script.<br /> Also, the package includes several tools to help preprocess your data before using the program.
 
 #### mEpigram Pipeline: 
 You can use the included pipeline to run mepigram, it will output motifs and their enrichement scores.
