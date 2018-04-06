@@ -25,20 +25,20 @@ To run mEpigram: Use mepigram_wrapper.py script.<br /> Also, the package include
 #### mEpigram Pipeline: 
 You can use the included pipeline to run mepigram, it will output motifs and their enrichement scores.
 
-To very quickly test the pipeline: 
+To very quickly test the pipeline, go to the program main directory and execute:
 
 TypeE:	
 
-`python mepigram_wrapper.py -f testfiles/test_data_typeE/ENCFF002CQR.narrowPeak.1000.faa -m typeE -b testfiles/test_data_typeE/background_typeE-5.tsv -g testfiles/test_data_typeE/graphE-5mer/`
+`python mepigram_wrapper.py testfiles/data_typeE/test.typeE.faa testfiles/data_typeE/background_typeE-5.tsv testfiles/data_typeE/graphE-5mer/ typeE -o test.typeE`
 
 TypeEF:
 
-`python mepigram_wrapper.py -f testfiles/test_data_typeEF/ENCFF002CQR.narrowPeak.1000.faa -m typeEF -b testfiles/test_data_typeEF/background_typeEF-5.tsv -g testfiles/test_data_typeEF/graphEF-5mer/`
+`python mepigram_wrapper.py testfiles/data_typeEF/test.typeEF.faa testfiles/data_typeEF/background_typeEF-5.tsv testfiles/data_typeEF/graphEF-5mer/ typeEF -o test.typeEF`
 
 
-If you use k=8 by inputting background_typeE-8.tsv, graphE-8mer (download it from our website) instead, you should be able to find several highly enriched m-motifs. 
+If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), graphE-8mer (download it from our website) instead, you should be able to find several highly enriched m-motifs. 
 
-*Note: This pipeline must be executed in the mepigram main directory. It also requires Julia installed.
+*Note: This pipeline must be executed in the mepigram main directory.
 
 
 #### mEpigram preprocessing scripts:
