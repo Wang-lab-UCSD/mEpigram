@@ -22,10 +22,10 @@ Contact: vqngo@ucsd.edu
 
 ## Usage
  
-To run mEpigram: It's recommended to run mEpigram using the mepigram_wrapper.py script. However, you can run each modules separately as well.
+To run mEpigram: Use mepigram_wrapper.py script. Also, the package includes several tools to help preprocess your data before using the program.
 
 #### mEpigram Pipeline: 
-You can use the included pipeline to run mepigram, it will perform dinucleotide-shulffing, mepigram_typeE, and enrichment calculation (which uses the motif scanning module).
+You can use the included pipeline to run mepigram, it will output motifs and their enrichement scores.
 
 To very quickly test the pipeline: 
 
@@ -43,7 +43,7 @@ If you use k=8 by inputting background_typeE-8.tsv, graphE-8mer (download it fro
 *Note: This pipeline must be executed in the mepigram main directory. It also requires Julia installed.
 
 
-#### Running each module separately:
+#### mEpigram preprocessing scripts:
 
 1. Insert methylation information into the genome, the input is assumed to be in BED format by default. WIG format can be used with --wig. In BED format, each line contains chromosome name, start location (0-based index), start location +1. An output directory will be created to contain the new genome with methylation information. The reference genome should be in a directory format, with each chromosomal sequence contained in a separate file, labeled by its chromosome name. 
 	
@@ -64,27 +64,6 @@ If you use k=8 by inputting background_typeE-8.tsv, graphE-8mer (download it fro
 	OR 
 	
 	`python bgModel.py -gd testfiles/samplegenome/ -k 5 -m typeEF`
-
-4. Shuffle the sequences: this step will di-nucleotide shuffle your FASTA input sequences to be used. 
-	
-	`python fasta-dinucleotide-shuffle_typeE.py -f sequences.faa > sequences.DS.faa`
-	
-	OR
-	
-	`python fasta-dinucleotide-shuffle_typeEF.py -f sequences.faa > sequences.DS.faa`
-
-
-5. Run mEpigram (all parameters must be provided):
-	
-	`python mepigram_typeE.py testInput.faa testInputCTCF.DS.faa your_specific_genome/background_met-8.tsv metgraph-8mer/ resultfile.meme max_No_motifs`
-	
-	OR
-	
-	`python mepigram_typeEF.py testInput.faa testInputCTCF.DS.faa your_specific_genome/background_met-8.tsv metgraph-8mer/ resultfile.meme max_No_motifs`
-	
-* max_No_motifs: integer, the maximum number of motifs to be produced.
-
-## Other tools
 
 #### Motif scanning: 
 To identify locations of matches using your motifs, you can use the motif scanning tool. The motif-scanning program is written in julia so it's necessary to have the Julia language installed. The program takes a FASTA file, a motif PWM file, and a background file that states background base composition. Although the background is optional, it is recommended that you use the appropriate background as the program will assume equal nucleotide distribution if the background is not provided.
