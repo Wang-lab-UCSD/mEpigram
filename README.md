@@ -74,5 +74,5 @@ To identify locations of matches using your motifs, you can use the motif scanni
 You can generate both types of logo using the `makeLOGO.py` script. Use the flag --typeEF to generate typeEF motifs.
 
 #### Data used in the manuscript:
-[H1_hg19_methylated_genome_typeE](http://tabit.ucsd.edu/mepigram/hg19_data/hg19_H1_typeE.tar.gz) 
+[H1_hg19_methylated_genome_typeE](http://tabit.ucsd.edu/mepigram/hg19_data/hg19_H1_typeE.tar.gz) <br />
 [GM12878_hg19_methylated_genome_typeE](http://tabit.ucsd.edu/mepigram/hg19_data/hg19_GM12878_typeE.tar.gz)
