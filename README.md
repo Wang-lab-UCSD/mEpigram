@@ -11,8 +11,8 @@ Contact: vqngo@ucsd.edu
 - The programs were written in [Python2.7](https://www.python.org/downloads/) and [Julia](https://julialang.org/downloads/) (tested with Julia v0.6.2 )
 
 - mEpigram requires a graph of possible k-mer interactions to function. Download the graphs here: 
-	* CpG mode: http://wanglab.ucsd.edu/star/mepigram/graphE-8mer.tar.gz
-	* non-CpG mode: http://wanglab.ucsd.edu/star/mepigram/graphEF-7mer.tar.gz
+	* CpG mode: http://wanglab.ucsd.edu/star/mEpigram/graphE-8mer.tar.gz
+	* non-CpG mode: http://wanglab.ucsd.edu/star/mEpigram/graphEF-7mer.tar.gz
 
 - If you want to generate motif logos (Optional), please install [WebLOGO](https://pypi.python.org/pypi/weblogo) on your computer. 
 
