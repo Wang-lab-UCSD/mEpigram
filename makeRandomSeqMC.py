@@ -18,7 +18,11 @@ def makeModel(seqs,alphabet):
     for seq in seqs:
         seq = seq.upper()
         for i in range(len(seq) - 2 + 1):
-            dimer_counts[seq[i]][seq[i + 1]] += 1
+            try:
+                dimer_counts[seq[i]][seq[i + 1]] += 1
+            except KeyError:
+                continue
+
             
             
     # normalize the dict
