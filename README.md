@@ -45,11 +45,11 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 
 1. Insert methylation information into the genome, the input is assumed to be in BED format by default. WIG format can be used with --wig. In BED format, each line contains chromosome name, start location (0-based index), start location +1. An output directory will be created to contain the new genome with methylation information. The reference genome should be in a directory format, with each chromosomal sequence contained in a separate file, labeled by its chromosome name. 
 	
-	`python modifyReference.py -f input.bed -r reference_genome_directory -o methyl_ref_genomeA`
+	`python modifyReference.py -f testfiles/input_modified_base/test.mCInput.bedgraph -r testfiles/samplegenome/ -t 0.5 -o meth_genomE`
 	
 	OR
 	
-	`python modifyReference.py --typeEF -f input.bed -r reference_genome_directory -o methyl_ref_genomeA`
+	`python modifyReference.py --typeEF -f testfiles/input_modified_base/test.mCInput.bedgraph -r testfiles/samplegenome/ -t 0.5 -o meth_genomeEF`
 
 2. Make methylated sequences from bed files and the genome above:
 	
