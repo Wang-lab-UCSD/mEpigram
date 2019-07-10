@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 
 """
-usage: Takes a BEDGRAPH or WIG file, a genome_dir , a genome type (optional), it makes a genome_met.faa directory
+usage: Takes a wig file, a genome_dir , a genome type, it makes a genome_met.faa directory
 
 TODO:
 -add a parameter to choose whether the G should be converted or not. 
 -or, make the user deal with it before inserting E into the genome.
-
-Check input file format.
 
 """
 from sys import argv
@@ -87,6 +85,7 @@ def main():
     threshold = 0.5
     isWig = False
     typeEF = False
+    isBED = False
     
     # get command line arguments
     #
@@ -197,7 +196,19 @@ def main():
             tmp=line.split('\t')
             chrom=tmp[0]
             loc=int(tmp[1])
-            value=float(tmp[3])
+            value = ''
+            if isBED == False:
+                try: 
+                    value=float(tmp[3])
+                except IndexError: 
+                    #this is BED file instead
+                    print "Detect BED file instead of BEDGRAPH"
+                    print "Assume all locations passed methylation threshold"
+                    value = 1.0
+                    isBED = True
+            else:
+                value = 1.0
+
             try:
                 metdata[chrom][loc+1]=value
             except KeyError:
