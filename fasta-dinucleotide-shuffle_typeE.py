@@ -126,7 +126,7 @@ def shuffleEdgeList(L):
 
 def dinuclShuffle(s):
   if len(s)==0:
-  	return s
+    return s
   ok = 0
   while not ok:
     ok,edgeList,nuclList,lastCh = eulerian(s)
@@ -151,82 +151,95 @@ def dinuclShuffle(s):
  
 def main():
 
-	#
-	# defaults
-	#
-	file_name = None
-	seed = 1
-	copies = 1
+  #
+  # defaults
+  #
+  file_name = None
+  seed = 1
+  copies = 1
+  #print "running"
 
-	#
-	# get command line arguments
-	#
-	usage = """USAGE: 
-	%s [options]
-
+  #
+  # get command line arguments
+  #
+  usage = """USAGE: %s [options] 
         -f <filename>   file name (required)
         -t <tag>        added to shuffled sequence names
         -s <seed>	random seed; default: %d
-	-c <n>		make <n> shuffled copies of each sequence; default: %d
+        -c <n>    make <n> shuffled copies of each sequence; default: %d
         -h              print this usage message
-	""" % (sys.argv[0], seed, copies)
+        """ % (sys.argv[0], seed, copies)
 
-        # no arguments: print usage
-	if len(sys.argv) == 1:
-		print >> sys.stderr, usage; sys.exit(1)
+  # no arguments: print usagei
 
-        tag = "";
+  if len(sys.argv) == 1:
+    #print "arg too short"
+    print >> sys.stderr, usage; sys.exit(1)
 
-        # parse command line
-        i = 1
-        while i < len(sys.argv):
-                arg = sys.argv[i]
-                if (arg == "-f"):
-                        i += 1
-                        try: file_name = sys.argv[i]
-                        except: print >> sys.stderr, usage; sys.exit(1)
-                elif (arg == "-t"):
-                        i += 1
-                        try: tag = sys.argv[i]
-                        except: print >> sys.stderr, usage; sys.exit(1)
-                elif (arg == "-s"):
-                        i += 1
-                        try: seed = string.atoi(sys.argv[i])
-                        except: print >> sys.stderr, usage; sys.exit(1)
-                elif (arg == "-c"):
-                        i += 1
-                        try: copies = string.atoi(sys.argv[i])
-                        except: print >> sys.stderr, usage; sys.exit(1)
-                elif (arg == "-h"):
-                        print >> sys.stderr, usage; sys.exit(1)
-                else:
-                        print >> sys.stderr, "Unknown command line argument: " + arg
-                        sys.exit(1)
-                i += 1
+  tag = ""
 
-        # check that required arguments given
-        if (file_name == None):
-        	print >> sys.stderr, usage; sys.exit(1)
+  # parse command line
+  #print "lenthsys",len(sys.argv)
+  i = 1
+  #print i
+  while i < len(sys.argv):
+    arg = sys.argv[i]
+    #print i, arg
+    if (arg == "-f"):
+      i += 1
+      try: 
+        file_name = sys.argv[i]
+        #print "filename", file_name
+      except: 
+        print >> sys.stderr, usage; sys.exit(1)
+    elif (arg == "-t"):
+      i += 1
+      try: 
+        tag = sys.argv[i]
+        #print "tag",tag
+      except: 
+        print >> sys.stderr, usage; sys.exit(1)
+    elif (arg == "-s"):
+      i += 1
+      try: 
+        seed = string.atoi(sys.argv[i])
+        #print "seed",seed
+      except: 
+        print >> sys.stderr, usage; sys.exit(1)
+    elif (arg == "-c"):
+      i += 1
+      try: 
+        copies = string.atoi(sys.argv[i])
+        #print "copies",copies
+      except: 
+        print >> sys.stderr, usage; sys.exit(1)
+    elif (arg == "-h"):
+      print >> sys.stderr, usage; sys.exit(1)
+      #print "help"
+    else:
+      print >> sys.stderr, "Unknown command line argument: " + arg
+      sys.exit(1)
+    i += 1
 
-	random.seed(seed)
+  # check that required arguments given
+  if (file_name == None):
+    print >> sys.stderr, usage; sys.exit(1)
 
-	# read sequences
-	seqs = sequence_met.readFASTA(file_name,'Methylation DNA')
+  random.seed(seed)
 
-	for s in seqs:
-		str = s.getString()
-		#FIXME altschul can't handle ambigs
-		name = s.getName()
+  # read sequences
+  seqs = sequence_met.readFASTA(file_name,'Methylation DNA')
 
-		#print >> sys.stderr, ">%s" % name
-
-		for i in range(copies):
-
-			shuffledSeq = dinuclShuffle(str)
-
-			if (copies == 1):
-				print >> sys.stdout, ">%s\n%s" % (name+tag, shuffledSeq)
-			else:
-				print >> sys.stdout, ">%s_%d\n%s" % (name+tag, i, shuffledSeq)
-	
-if __name__ == '__main__': main()
+  for s in seqs:
+    str = s.getString()
+    #FIXME altschul can't handle ambigs
+    name = s.getName()
+    #print >> sys.stderr, ">%s" % name
+    for i in range(copies):
+      shuffledSeq = dinuclShuffle(str)
+      if (copies == 1):
+        print >> sys.stdout, ">%s\n%s" % (name+tag, shuffledSeq)
+      else:
+        print >> sys.stdout, ">%s_%d\n%s" % (name+tag, i, shuffledSeq)
+if __name__ == '__main__': 
+  main()
