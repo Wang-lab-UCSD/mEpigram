@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-usage: Takes a wig file, a genome_dir , a genome type, it makes a genome_met.faa directory
+usage: Takes a BEDGRAPH or WIG file, a genome_dir , a genome type (optional), it makes a genome_met.faa directory
 
 TODO:
 -add a parameter to choose whether the G should be converted or not. 
@@ -93,8 +93,8 @@ def main():
     usage = """USAGE: 
     %s [options]
 
-        -f <filename>  		input file, default is wig format
-        --wig                   indicates that the input file is in wig format
+        -f <filename>  		input file, default is BEDGRAPH format (4th column is methylation value from 0 - 1.0)
+        --wig                   indicates that the input file is in WIG format instead of BEDGRAPH
         --typeEF                convert the modified base to E and the complementary base to F, default is False (optional)
         -t <number>             methylation threshold above which C will be considered E, default is 0.5 (optional)       
         -r <ref_genome> 	directory of the reference genome (best put in a separate directory)
@@ -123,7 +123,7 @@ def main():
             #print "Is Bed"
             try: isWig = True
             except:
-                print "Error in --bed" 
+                print "Error in --wig" 
                 sys.exit(1)
         elif (arg == "--typeEF"):
             #i += 1
@@ -189,7 +189,7 @@ def main():
                 except:
                     #print seq[i][j] #this is at the end of each chromosome
                     continue
-    if isWig == False: #this is 0-based, while the metdata assumes 1-based coordinates
+    if isWig == False: #this is 0-based BEDGRAPH file, while the metdata assumes 1-based coordinates 
         bedfile = wigfile
         print "Loading the BEDGRAPH input file..."
         seqs=open(bedfile).read().strip().split('\n')
