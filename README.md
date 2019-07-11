@@ -41,7 +41,7 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 *Note: This pipeline must be executed in the mepigram main directory. For more information, execute: *python mepigram_wrapper.py -h*
 
 
-#### Work flow: mEpigram preprocessing steps
+#### Work flow: preparing your own data for the program
 
 1. Insert methylation information into the genome, the input is assumed to be in BED format by default. WIG format can be used with --wig. In BED format, each line contains chromosome name, start location (0-based index), start location +1. An output directory will be created to contain the new genome with methylation information. The reference genome should be in a directory format, with each chromosomal sequence contained in a separate file, labeled by its chromosome name. 
 	
