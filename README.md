@@ -55,17 +55,18 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 	
 	`python bedToFasta.py -f input.bed -r methyl_ref_genomeA -o output.faa`
 
-3. Make background model: Count the number of k-mers in the genome. This might take a while (a few hours on human whole genome) but you only need to do this once per reference genome. Example: Count the number of 5-mers in the sample genome:
+3. Make background model: Count the number of k-mers in the genome. This might take a while (a few hours on human whole genome) but you only need to do this once per reference genome. Example: Count the number of 8-mers in the sample genome (it's recommended to use at least k=7 for typeEF mode and k=8 for typeE mode:
 	
-	`python bgModel.py -gd testfiles/samplegenome/ -k 5 -m typeE`
+	`python bgModel.py -gd testfiles/samplegenome/ -k 8 -m typeE`
 	
 	OR 
 	
-	`python bgModel.py -gd testfiles/samplegenome/ -k 5 -m typeEF`
+	`python bgModel.py -gd testfiles/samplegenome/ -k 8 -m typeEF`
 	
 4. Running the pipeline: After getting all the above steps done, you can now use mepigram_wrapper.py on your own data. Enjoy!
 
 
+## Optional steps:
 #### Motif scanning: 
 Aftering discovering motifs from the pipeline, you might want to find where they are in a set of sequences. To identify locations of matches using your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file that states background base composition. Although the background is optional, it is recommended that you use the appropriate background as the program will assume equal nucleotide distribution if the background is not provided.
 	
