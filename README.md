@@ -41,7 +41,7 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 *Note: This pipeline must be executed in the mepigram main directory. For more information, execute: *python mepigram_wrapper.py -h*
 
 
-#### mEpigram preprocessing scripts:
+#### Work flow: mEpigram preprocessing steps
 
 1. Insert methylation information into the genome, the input is assumed to be in BED format by default. WIG format can be used with --wig. In BED format, each line contains chromosome name, start location (0-based index), start location +1. An output directory will be created to contain the new genome with methylation information. The reference genome should be in a directory format, with each chromosomal sequence contained in a separate file, labeled by its chromosome name. 
 	
@@ -62,9 +62,12 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 	OR 
 	
 	`python bgModel.py -gd testfiles/samplegenome/ -k 5 -m typeEF`
+	
+4. Running the pipeline: After getting all the above steps done, you can now use mepigram_wrapper.py on your own data. Enjoy!
+
 
 #### Motif scanning: 
-To identify locations of matches using your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file that states background base composition. Although the background is optional, it is recommended that you use the appropriate background as the program will assume equal nucleotide distribution if the background is not provided.
+Aftering discovering motifs from the pipeline, you might want to find where they are in a set of sequences. To identify locations of matches using your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file that states background base composition. Although the background is optional, it is recommended that you use the appropriate background as the program will assume equal nucleotide distribution if the background is not provided.
 	
 `python motifscannerA.py [options] -f fastafile -m motiffile -o output_file -b backgroundBaseComposition`
 	
