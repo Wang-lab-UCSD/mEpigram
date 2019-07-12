@@ -145,8 +145,8 @@ function main()
     println("Scanning "*positiveregions*" with "*motiffile*" at pvalue "*string(p_cutoff))
     motifs=load_motifs(motiffile)
     #println(typeof(motifs))
-    trainnegset = split(strip(readstring(open(negativeregions))),'>')[2:end]
-    posset = split(strip(readstring(open(positiveregions))),'>')[2:end]
+    trainnegset = split(strip(uppercase(readstring(open(negativeregions)))),'>')[2:end]
+    posset = split(strip(uppercase(readstring(open(positiveregions)))),'>')[2:end]
     
     global transdict=Dict('A'=>'T','C'=>'G','G'=>'C','T'=>'A','E'=>'F','F'=>'E')
     trainnegseqs = AbstractString[] 
