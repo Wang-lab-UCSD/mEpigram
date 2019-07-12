@@ -1,5 +1,11 @@
+MEME version 4.5
+ALPHABET= A,C,G,T,E
+strands: + 
+Background letter frequencies
+A 0.295 C 0.205 G 0.205 T 0.295
+
 MOTIF 0_test
-info
+Information_place_holder
 0.033124	0.664489	0	0.104968	0.041222	0.156197
 0.037292	0.04439	0.026499	0.867621	0.024198	0
 0.046145	0.020441	0.784951	0.134764	0.0137	0
