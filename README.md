@@ -68,9 +68,16 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 
 ## Optional steps:
 #### Motif scanning: 
-Aftering discovering motifs from the pipeline, you might want to find where they are in a set of sequences. To identify locations of matches using your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file that states background base composition. Although the background is optional, it is recommended that you use the appropriate background as the program will assume equal nucleotide distribution if the background is not provided.
+Aftering discovering motifs from the pipeline, you might want to find where they are in a set of sequences. To identify locations of matches using your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file (optional) that states background base composition. The program will use the nucleotide distribution from the input sequences if a background is not provided.
 	
-`python motifscannerA.py [options] -f fastafile -m motiffile -o output_file -b backgroundBaseComposition`
+`python motifscannerA.py -f testfiles/data_typeE/test.typeE.faa -m testfiles/data_typeE/test.typeE.meme -o test.scanned.txt`
+
+Example of the content of a background nucleotide distribution file:
+A       0.295484488819
+C       0.199430583447
+E       0.00508492759333
+T       0.295484488959
+G       0.204515511181
 	
 *Note: The motifscannerA.py file should be executed in the main mEpigram directory
 
