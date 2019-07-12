@@ -74,11 +74,11 @@ After discovering motifs from the pipeline, you might want to find where they ar
 
 Example of the content of a background nucleotide distribution file:
 
-`A       0.295484488819
-C       0.199430583447
-E       0.00508492759333
-T       0.295484488959
-G       0.204515511181`
+A       0.295484488819<br/>
+C       0.199430583447<br/>
+E       0.00508492759333<br/>
+T       0.295484488959<br/>
+G       0.204515511181<br/>
 	
 *Note: The motifscannerA.py file should be executed in the main mEpigram directory
 
