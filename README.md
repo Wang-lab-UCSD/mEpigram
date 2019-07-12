@@ -72,7 +72,7 @@ After discovering motifs from the pipeline, you might want to find where they ar
 	
 `python motifscannerA.py -f testfiles/data_typeE/test.typeE.faa -m testfiles/data_typeE/test.typeE.meme -o test.scanned.txt`
 
-Example of the content of a background nucleotide distribution file:
+Example of the content of a background nucleotide composition file:
 
 <pre>A	0.295484488819
 C	0.199430583447
