@@ -1,5 +1,5 @@
 MEME version 4.5
-ALPHABET= A,C,G,T,mC 
+ALPHABET= A,C,G,T,E
 strands: + 
 Background letter frequencies (from 
 A 0.295 C 0.205 G 0.205 T 0.295
