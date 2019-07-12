@@ -68,7 +68,7 @@ If you use k=8 by inputting background_typeE-8.tsv (you need to generate this), 
 
 ## Optional steps:
 #### Motif scanning: 
-Aftering discovering motifs from the pipeline, you might want to find where they are in a set of sequences. To identify locations of matches using your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file (optional) that states background base composition. The program will use the nucleotide distribution from the input sequences if a background is not provided.
+After discovering motifs from the pipeline, you might want to find where they are in a set of sequences. To identify locations of matches with your motifs, you can use the motif scanning tool. The program takes a FASTA file, a motif PWM file, and a background file (optional) that specifies background base composition. The program will use the nucleotide composition from the input sequences if a background is not provided.
 	
 `python motifscannerA.py -f testfiles/data_typeE/test.typeE.faa -m testfiles/data_typeE/test.typeE.meme -o test.scanned.txt`
 
