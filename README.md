@@ -83,6 +83,7 @@ G       0.204515511181
 
 #### Making motif LOGOs: 
 You can generate both types of logo using the `makeLOGO.py` script. Use the flag --typeEF to generate typeEF motifs. Once you've installed Weblogo, you can run this command to test the program:
+
 `python makeLOGO.py -m testfiles/data_typeE/test.typeE.meme -o testLogo`
 
 #### Data used in the manuscript:
