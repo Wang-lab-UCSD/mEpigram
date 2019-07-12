@@ -82,8 +82,11 @@ G       0.204515511181
 *Note: The motifscannerA.py file should be executed in the main mEpigram directory
 
 #### Making motif LOGOs: 
-You can generate both types of logo using the `makeLOGO.py` script. Use the flag --typeEF to generate typeEF motifs.
+You can generate both types of logo using the `makeLOGO.py` script. Use the flag --typeEF to generate typeEF motifs. Once you've installed Weblogo, you can run this command to test the program:
+`python makeLOGO.py -m testfiles/data_typeE/test.typeE.meme -o testLogo`
 
 #### Data used in the manuscript:
 [H1_hg19_methylated_genome_typeE](http://tabit.ucsd.edu/mepigram/hg19_data/hg19_H1_typeE.tar.gz) <br />
 [GM12878_hg19_methylated_genome_typeE](http://tabit.ucsd.edu/mepigram/hg19_data/hg19_GM12878_typeE.tar.gz)
+
+
